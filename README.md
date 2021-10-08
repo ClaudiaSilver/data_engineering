@@ -1,2 +1,2 @@
 # data_engineering 
-This is my homework folder.
+These are my home-learning tasks.
