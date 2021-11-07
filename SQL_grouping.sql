@@ -65,10 +65,17 @@ GROUP BY tot_sales
 ORDER BY 1;
 
 -- Task 6: Write a query that retrieves all 2020 data and include a column that contains the tot_sales value from the previous month
-select * from Sales_Fact
-where year_no = 2020;
+select year_no, month_no, tot_sales, lag(tot_sales,1) over(
+partition by year_no
+order by tot_sales
+) previous_month_sales
+ from Sales_Fact
+ where year_no = 2020
+ group by tot_sales;
+ -- the null value in the first row is as expected as we are only querying data from Jan 2020 onwards
 
--- Task 6:
+
+
 
 
 
